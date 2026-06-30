@@ -1,66 +1,27 @@
 page {
-  background: linear-gradient(180deg, #eef3ff 0%, #f8f7f2 42%, #f7f7fb 100%);
+  background: #f7f7fb;
   color: #202033;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .container {
-  min-height: 100vh;
-  overflow: hidden;
   padding: 28rpx;
-  position: relative;
-}
-
-.container::before {
-  background: radial-gradient(circle, rgba(108, 99, 255, 0.18), rgba(108, 99, 255, 0));
-  content: "";
-  height: 420rpx;
-  position: absolute;
-  right: -160rpx;
-  top: -140rpx;
-  width: 420rpx;
-  z-index: 0;
-}
-
-.container::after {
-  background: radial-gradient(circle, rgba(33, 182, 168, 0.14), rgba(33, 182, 168, 0));
-  bottom: 80rpx;
-  content: "";
-  height: 360rpx;
-  left: -170rpx;
-  position: absolute;
-  width: 360rpx;
-  z-index: 0;
 }
 
 .card {
-  backdrop-filter: blur(18rpx);
-  background: rgba(255, 255, 255, 0.82);
-  border: 1rpx solid rgba(255, 255, 255, 0.74);
-  border-radius: 32rpx;
-  box-shadow: 0 24rpx 70rpx rgba(40, 42, 80, 0.1);
+  background: #ffffff;
+  border-radius: 28rpx;
+  box-shadow: 0 16rpx 48rpx rgba(35, 35, 70, 0.06);
   padding: 28rpx;
-  position: relative;
-  z-index: 1;
 }
 
 .primary-button {
-  background: linear-gradient(135deg, #6c63ff 0%, #21b6a8 100%);
+  background: #6c63ff;
   border-radius: 999rpx;
-  box-shadow: 0 16rpx 34rpx rgba(108, 99, 255, 0.28);
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .muted {
-  color: #7f8094;
-}
-
-.glass-chip {
-  background: rgba(255, 255, 255, 0.62);
-  border: 1rpx solid rgba(255, 255, 255, 0.72);
-  border-radius: 999rpx;
-  color: #4d4f68;
-  font-size: 24rpx;
-  padding: 10rpx 18rpx;
+  color: #8a8a99;
 }

@@ -5,8 +5,7 @@ Page({
   data: {
     today: '',
     habits: [],
-    completedCount: 0,
-    progressPercent: 0
+    completedCount: 0
   },
 
   onShow() {
@@ -18,8 +17,7 @@ Page({
     this.setData({
       today: todayKey(),
       habits,
-      completedCount: habits.filter((habit) => habit.log).length,
-      progressPercent: habits.length ? Math.round((habits.filter((habit) => habit.log).length / habits.length) * 100) : 0
+      completedCount: habits.filter((habit) => habit.log).length
     })
   },
 
