@@ -15,12 +15,12 @@
 ```js
 const cloudConfig = {
   enabled: true,
-  env: 'REPLACE_WITH_CLOUD_ENV_ID',
+  env: 'great-habit-dev',
   traceUser: true
 }
 ```
 
-上线前需要把 `env` 从占位值改成你在微信开发者工具里创建的云环境 ID；未替换前不会初始化云开发，方便先预览本地功能。`project.config.json` 已加入 `cloudfunctionRoot`，云函数目录为 `cloudfunctions/`。
+上线前需要把 `env` 改成你在微信开发者工具里创建的云环境 ID。`project.config.json` 已加入 `cloudfunctionRoot`，云函数目录为 `cloudfunctions/`。
 
 ## 3. 订阅消息模板设计
 

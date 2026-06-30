@@ -1,14 +1,7 @@
 const cloudConfig = {
   enabled: true,
-  env: 'REPLACE_WITH_CLOUD_ENV_ID',
+  env: 'great-habit-dev',
   traceUser: true
 }
 
-function hasConfiguredCloudEnv() {
-  return cloudConfig.enabled && cloudConfig.env && !cloudConfig.env.startsWith('REPLACE_WITH')
-}
-
-module.exports = {
-  cloudConfig,
-  hasConfiguredCloudEnv
-}
+module.exports = cloudConfig

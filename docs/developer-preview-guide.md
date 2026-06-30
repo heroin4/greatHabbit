@@ -34,9 +34,9 @@
 
 ## 5. 云开发环境创建后要替换哪里？
 
-创建云开发环境后，把 `miniprogram/config/cloud.js` 中的 `env` 从 `REPLACE_WITH_CLOUD_ENV_ID` 改成真实云环境 ID。
+创建云开发环境后，把 `miniprogram/config/cloud.js` 中的 `env` 从示例值 `great-habit-dev` 改成真实云环境 ID。
 
-当前为了方便你立即预览，代码会检测占位环境 ID：如果还没替换，就不会执行 `wx.cloud.init`，避免因为云环境不存在影响本地预览。
+如果你只是想先看页面、不想连接云环境，可以在微信开发者工具里先使用测试号预览本地页面；等 AppID 和云环境准备好后，再开启云开发相关能力。
 
 ## 6. 订阅消息模板 ID 要替换哪里？
 
