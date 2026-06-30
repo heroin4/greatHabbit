@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="card profile-card">
+    <view class="avatar">🌱</view>
+    <view>
+      <view class="title">Great Habit</view>
+      <view class="muted">先把核心闭环跑起来：提醒、记录、统计。</view>
+    </view>
+  </view>
+
+  <view class="card action-card">
+    <view class="section-title">下一步需要你提供</view>
+    <view class="todo">1. 微信小程序 AppID</view>
+    <view class="todo">2. 是否启用云开发环境</view>
+    <view class="todo">3. 首版习惯模板和品牌名称</view>
+  </view>
+
+  <view class="card action-card">
+    <view class="section-title">提醒模板</view>
+    <view wx:for="{{reminderTemplates}}" wx:key="title" class="todo">{{item.title}}：{{item.scene}}</view>
+    <button class="primary-button subscribe-button" bindtap="subscribeReminder">订阅习惯提醒</button>
+  </view>
+</view>
