@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="grid">
+    <view class="metric card">
+      <view class="metric-value">{{overview.totalDuration}}</view>
+      <view class="muted">总时长 / 分钟</view>
+    </view>
+    <view class="metric card">
+      <view class="metric-value">{{overview.totalCount}}</view>
+      <view class="muted">总次数 / 个</view>
+    </view>
+  </view>
+
+  <view class="card list-card">
+    <view class="section-title">习惯统计</view>
+    <view wx:for="{{overview.stats}}" wx:key="id" class="stat-row">
+      <view>
+        <view class="habit-name">{{item.icon}} {{item.name}}</view>
+        <view class="muted">完成 {{item.completedDays}} 天</view>
+      </view>
+      <view class="total">{{item.displayTotal}}</view>
+    </view>
+  </view>
+</view>

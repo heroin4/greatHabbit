@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/today/today",
+    "pages/habit-edit/habit-edit",
+    "pages/stats/stats",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "navigationBarTitleText": "Great Habit",
+    "navigationBarBackgroundColor": "#6C63FF",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F7F7FB"
+  },
+  "tabBar": {
+    "color": "#8A8A99",
+    "selectedColor": "#6C63FF",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/today/today",
+        "text": "今日"
+      },
+      {
+        "pagePath": "pages/stats/stats",
+        "text": "统计"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

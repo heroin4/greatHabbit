@@ -1,0 +1,92 @@
+.hero {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 28rpx;
+}
+
+.eyebrow {
+  color: #6c63ff;
+  font-size: 24rpx;
+  font-weight: 700;
+  margin-bottom: 10rpx;
+}
+
+.title {
+  font-size: 44rpx;
+  font-weight: 800;
+  margin-bottom: 10rpx;
+}
+
+.add-button {
+  align-items: center;
+  background: #6c63ff;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  font-size: 42rpx;
+  height: 92rpx;
+  justify-content: center;
+  line-height: 92rpx;
+  margin: 0;
+  padding: 0;
+  width: 92rpx;
+}
+
+.habit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22rpx;
+}
+
+.habit {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.habit.is-done {
+  opacity: 0.72;
+}
+
+.habit-main {
+  align-items: center;
+  display: flex;
+  min-width: 0;
+}
+
+.icon {
+  align-items: center;
+  border-radius: 24rpx;
+  display: flex;
+  font-size: 42rpx;
+  height: 88rpx;
+  justify-content: center;
+  margin-right: 22rpx;
+  width: 88rpx;
+}
+
+.habit-copy {
+  min-width: 0;
+}
+
+.habit-name {
+  font-size: 32rpx;
+  font-weight: 700;
+  margin-bottom: 8rpx;
+}
+
+.record-button {
+  font-size: 26rpx;
+  line-height: 64rpx;
+  margin: 0;
+  min-width: 132rpx;
+}
+
+.done-pill {
+  background: #eefaf4;
+  border-radius: 999rpx;
+  color: #21a66f;
+  font-size: 24rpx;
+  padding: 14rpx 18rpx;
+}
