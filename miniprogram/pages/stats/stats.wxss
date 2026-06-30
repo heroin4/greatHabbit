@@ -1,0 +1,48 @@
+.grid {
+  display: grid;
+  gap: 22rpx;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 24rpx;
+}
+
+.metric-value {
+  color: #6c63ff;
+  font-size: 48rpx;
+  font-weight: 800;
+  margin-bottom: 8rpx;
+}
+
+.list-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: 34rpx;
+  font-weight: 800;
+  margin-bottom: 18rpx;
+}
+
+.stat-row {
+  align-items: center;
+  border-top: 1rpx solid #eeeeF6;
+  display: flex;
+  justify-content: space-between;
+  padding: 24rpx 0;
+}
+
+.stat-row:first-of-type {
+  border-top: 0;
+}
+
+.habit-name {
+  font-size: 30rpx;
+  font-weight: 700;
+  margin-bottom: 8rpx;
+}
+
+.total {
+  color: #202033;
+  font-size: 30rpx;
+  font-weight: 800;
+}

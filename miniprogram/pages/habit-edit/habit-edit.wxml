@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="card form-card">
+    <view class="label">习惯名称</view>
+    <input class="input" value="{{name}}" placeholder="例如：念诵经文" bindinput="onNameInput" />
+
+    <view class="label">目标类型</view>
+    <picker mode="selector" range="{{goalTypeLabels}}" value="{{goalTypeIndex}}" bindchange="onGoalTypeChange">
+      <view class="picker">{{goalTypeLabels[goalTypeIndex]}}</view>
+    </picker>
+
+    <view class="label">目标数值</view>
+    <input class="input" type="number" value="{{targetValue}}" placeholder="30" bindinput="onTargetInput" />
+
+    <view class="label">单位</view>
+    <input class="input" value="{{unit}}" placeholder="分钟 / 个 / 次" bindinput="onUnitInput" />
+
+    <view class="label">提醒时间</view>
+    <picker mode="time" value="{{reminderTime}}" bindchange="onReminderChange">
+      <view class="picker">{{reminderTime}}</view>
+    </picker>
+
+    <button class="primary-button save-button" bindtap="saveHabit">保存习惯</button>
+  </view>
+</view>
