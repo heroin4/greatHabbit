@@ -1,0 +1,84 @@
+.profile-card {
+  align-items: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(239, 243, 255, 0.82));
+  display: flex;
+  gap: 24rpx;
+  margin-bottom: 24rpx;
+  overflow: hidden;
+}
+
+.avatar-wrap {
+  position: relative;
+}
+
+.avatar {
+  align-items: center;
+  background: linear-gradient(135deg, rgba(33, 182, 168, 0.14), rgba(108, 99, 255, 0.14));
+  border-radius: 34rpx;
+  display: flex;
+  font-size: 58rpx;
+  height: 116rpx;
+  justify-content: center;
+  position: relative;
+  width: 116rpx;
+  z-index: 1;
+}
+
+.orbit {
+  border: 2rpx solid rgba(108, 99, 255, 0.24);
+  border-radius: 50%;
+  height: 140rpx;
+  left: -12rpx;
+  position: absolute;
+  top: -12rpx;
+  width: 140rpx;
+}
+
+.eyebrow {
+  color: #6c63ff;
+  font-size: 20rpx;
+  font-weight: 900;
+  letter-spacing: 2rpx;
+  margin-bottom: 8rpx;
+}
+
+.title {
+  font-size: 42rpx;
+  font-weight: 900;
+  margin-bottom: 10rpx;
+}
+
+.action-card {
+  margin-bottom: 24rpx;
+}
+
+.section-title {
+  font-size: 34rpx;
+  font-weight: 900;
+  margin-bottom: 20rpx;
+}
+
+.todo {
+  align-items: center;
+  border-top: 1rpx solid rgba(125, 126, 150, 0.13);
+  color: #4b4b66;
+  display: flex;
+  font-size: 30rpx;
+  gap: 16rpx;
+  padding: 22rpx 0;
+}
+
+.template-row {
+  align-items: flex-start;
+}
+
+.template-title {
+  color: #202033;
+  font-size: 30rpx;
+  font-weight: 800;
+  margin-bottom: 6rpx;
+}
+
+.subscribe-button {
+  margin-top: 24rpx;
+}
