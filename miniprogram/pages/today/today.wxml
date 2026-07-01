@@ -42,7 +42,7 @@
         <view class="quick-value">📿</view>
         <view class="quick-label">稳定功课</view>
       </view>
-      <button class="quick-add" bindtap="goCreate">＋ 新习惯</button>
+      <button class="quick-add compact" bindtap="goCreate">＋ 添加</button>
     </view>
   </view>
 
@@ -75,12 +75,11 @@
               <text class="dot">·</text>
               <text>{{item.targetValue}}{{item.unit}}</text>
             </view>
-            <view class="tap-hint">点击卡片修改，左滑删除</view>
           </view>
         </view>
         <view class="habit-actions">
           <view wx:if="{{item.log}}" class="done-pill">✓ {{item.log.value}}{{item.unit}}</view>
-          <button wx:else class="record-button" data-id="{{item.id}}" catchtap="recordHabit">完成</button>
+          <button wx:else class="record-button" data-id="{{item.id}}" catchtap="recordHabit">✓</button>
         </view>
       </view>
     </view>
