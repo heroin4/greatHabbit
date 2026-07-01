@@ -5,6 +5,14 @@
     <view class="muted">把每天的小行动，沉淀成可见的数据。</view>
   </view>
 
+  <view class="reward-preview card">
+    <view>
+      <view class="section-title">奖励设想</view>
+      <view class="muted">先按完成天数点亮徽章：3 天萌芽、7 天稳定、30 天月度、100 天大师。</view>
+    </view>
+    <view class="reward-count">{{overview.unlockedRewards}}</view>
+  </view>
+
   <view class="grid">
     <view class="metric card">
       <view class="metric-icon">⏱️</view>
@@ -25,10 +33,10 @@
         <view class="mini-icon" style="background: {{item.color}}22; color: {{item.color}}">{{item.icon}}</view>
         <view>
           <view class="habit-name">{{item.name}}</view>
-          <view class="muted">完成 {{item.completedDays}} 天</view>
+          <view class="muted">完成 {{item.completedDays}} 天 · {{item.reward.title}}</view>
         </view>
       </view>
-      <view class="total">{{item.displayTotal}}</view>
+      <view class="total">{{item.reward.icon}} {{item.displayTotal}}</view>
     </view>
   </view>
 </view>

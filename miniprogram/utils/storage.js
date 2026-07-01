@@ -153,6 +153,10 @@ function getLogs() {
   return wx.getStorageSync(LOGS_KEY) || []
 }
 
+function getHabitById(id) {
+  return getHabits().find((habit) => habit.id === id) || null
+}
+
 function saveLogs(logs) {
   wx.setStorageSync(LOGS_KEY, logs)
 }
@@ -231,12 +235,38 @@ function addHabit(habit) {
   return nextHabit
 }
 
+function updateHabit(id, updates) {
+  const habits = getHabits()
+  const nextHabits = habits.map((habit) => {
+    if (habit.id !== id) {
+      return habit
+    }
+
+    return {
+      ...habit,
+      ...updates,
+      id,
+      updatedAt: new Date().toISOString()
+    }
+  })
+  saveHabits(nextHabits)
+  return getHabitById(id)
+}
+
+function deleteHabit(id) {
+  saveHabits(getHabits().filter((habit) => habit.id !== id))
+  saveLogs(getLogs().filter((log) => log.habitId !== id))
+}
+
 module.exports = {
   addHabit,
+  deleteHabit,
+  getHabitById,
   getHabits,
   getLogs,
   getTodayHabits,
   resetDemoData,
   seedDefaultHabits,
+  updateHabit,
   upsertHabitLog
 }

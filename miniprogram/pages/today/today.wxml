@@ -25,6 +25,14 @@
       </view>
     </view>
 
+    <view class="encouragement-card">
+      <view class="encouragement-icon">✨</view>
+      <view>
+        <view class="encouragement-title">今日鼓励</view>
+        <view class="encouragement-text">{{encouragementText}}</view>
+      </view>
+    </view>
+
     <view class="quick-grid">
       <view class="quick-card">
         <view class="quick-value">🌿</view>
@@ -63,8 +71,14 @@
           </view>
         </view>
       </view>
-      <view wx:if="{{item.log}}" class="done-pill">✓ {{item.log.value}}{{item.unit}}</view>
-      <button wx:else class="record-button" data-id="{{item.id}}" bindtap="recordHabit">完成</button>
+      <view class="habit-actions">
+        <view wx:if="{{item.log}}" class="done-pill">✓ {{item.log.value}}{{item.unit}}</view>
+        <button wx:else class="record-button" data-id="{{item.id}}" bindtap="recordHabit">完成</button>
+        <view class="action-row">
+          <button class="text-action" data-id="{{item.id}}" bindtap="editHabit">修改</button>
+          <button class="text-action danger" data-id="{{item.id}}" bindtap="deleteHabit">删除</button>
+        </view>
+      </view>
     </view>
   </view>
 </view>

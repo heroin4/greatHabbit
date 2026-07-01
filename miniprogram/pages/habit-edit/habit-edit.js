@@ -1,15 +1,39 @@
-const { addHabit } = require('../../utils/storage')
+const { addHabit, getHabitById, updateHabit } = require('../../utils/storage')
 
 const goalTypes = ['duration', 'count', 'done']
 
 Page({
   data: {
+    habitId: '',
+    isEditing: false,
     name: '',
     targetValue: 30,
     unit: '分钟',
     reminderTime: '21:00',
     goalTypeIndex: 0,
     goalTypeLabels: ['时长型', '计数型', '完成型']
+  },
+
+  onLoad(options) {
+    if (!options.id) {
+      return
+    }
+
+    const habit = getHabitById(options.id)
+    if (!habit) {
+      wx.showToast({ title: '习惯不存在', icon: 'none' })
+      return
+    }
+
+    this.setData({
+      habitId: habit.id,
+      isEditing: true,
+      name: habit.name,
+      targetValue: habit.targetValue,
+      unit: habit.unit,
+      reminderTime: habit.reminderTime,
+      goalTypeIndex: Math.max(goalTypes.indexOf(habit.goalType), 0)
+    })
   },
 
   onNameInput(event) {
@@ -42,20 +66,27 @@ Page({
       return
     }
 
-    addHabit({
+    const habitPayload = {
       name: this.data.name.trim(),
-      icon: '✨',
-      color: '#6C63FF',
+      icon: this.data.isEditing ? getHabitById(this.data.habitId).icon : '✨',
+      color: this.data.isEditing ? getHabitById(this.data.habitId).color : '#6C63FF',
       goalType: goalTypes[this.data.goalTypeIndex],
       targetValue: this.data.targetValue,
       unit: this.data.unit || '次',
       frequency: { type: 'daily', weekdays: [] },
       reminderTime: this.data.reminderTime,
-      group: '自定义',
-      encouragement: '今天也稳稳完成'
-    })
+      group: this.data.isEditing ? getHabitById(this.data.habitId).group : '自定义',
+      encouragement: this.data.isEditing ? getHabitById(this.data.habitId).encouragement : '今天也稳稳完成'
+    }
 
-    wx.showToast({ title: '已创建', icon: 'success' })
+    if (this.data.isEditing) {
+      updateHabit(this.data.habitId, habitPayload)
+      wx.showToast({ title: '已保存', icon: 'success' })
+    } else {
+      addHabit(habitPayload)
+      wx.showToast({ title: '已创建', icon: 'success' })
+    }
+
     wx.navigateBack()
   }
 })
