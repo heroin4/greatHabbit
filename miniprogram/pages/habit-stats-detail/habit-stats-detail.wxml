@@ -1,0 +1,42 @@
+<view class="container detail-shell">
+  <view class="card detail-hero" wx:if="{{habit}}">
+    <view class="habit-icon" style="background: {{habit.color}}22; color: {{habit.color}}">{{habit.icon}}</view>
+    <view>
+      <view class="eyebrow">HABIT DETAIL</view>
+      <view class="title">{{habit.name}}</view>
+      <view class="muted">从 {{summary.startDate}} 开始追踪 · 首次完成 {{summary.firstCompletedDate}}</view>
+    </view>
+  </view>
+
+  <view class="summary-grid">
+    <view class="card summary-card">
+      <view class="summary-value">{{summary.completedDays}}</view>
+      <view class="muted">完成天数</view>
+    </view>
+    <view class="card summary-card warning">
+      <view class="summary-value">{{summary.breakCount}}</view>
+      <view class="muted">中断次数</view>
+    </view>
+  </view>
+
+  <view class="card chart-card">
+    <view class="section-title">近 30 天节奏图</view>
+    <view class="legend-row">
+      <view class="legend done"></view><text>完成</text>
+      <view class="legend missed"></view><text>应做未做</text>
+      <view class="legend rest"></view><text>非计划日</text>
+    </view>
+    <view class="chart-grid">
+      <view wx:for="{{chartDays}}" wx:key="date" class="chart-day {{item.state}}">
+        <view class="bar"></view>
+        <view class="day-label">{{item.dayLabel}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card break-card">
+    <view class="section-title">最近中断</view>
+    <view wx:if="{{breakDates.length === 0}}" class="empty-copy">还没有中断记录，继续保持。</view>
+    <view wx:for="{{breakDates}}" wx:key="*this" class="break-row">{{item}}</view>
+  </view>
+</view>
