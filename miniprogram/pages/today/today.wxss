@@ -586,3 +586,12 @@
 .swipe-row .habit-card {
   transform: translateX(0);
 }
+
+/* Final swipe guard: actions are not rendered until a row is opened. */
+.swipe-row:not(.is-open) .swipe-actions {
+  display: none;
+}
+
+.swipe-row:not(.is-open) .habit-card {
+  transform: translateX(0) !important;
+}

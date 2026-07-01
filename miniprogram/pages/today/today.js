@@ -15,6 +15,7 @@ Page({
   },
 
   onShow() {
+    this.setData({ swipedHabitId: '' })
     this.loadHabits()
   },
 
@@ -34,8 +35,9 @@ Page({
   withSwipeState(habits, swipedHabitId) {
     return habits.map((habit) => ({
       ...habit,
+      isSwiped: habit.id === swipedHabitId,
       swipeState: habit.id === swipedHabitId ? 'is-open' : '',
-      swipeX: habit.id === swipedHabitId ? '-184rpx' : '0'
+      swipeStyle: habit.id === swipedHabitId ? 'transform: translateX(-184rpx);' : 'transform: translateX(0);'
     }))
   },
 
