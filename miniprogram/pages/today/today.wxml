@@ -51,7 +51,7 @@
       <view class="muted">像整理桌面一样整理今天。</view>
     </view>
     <view class="section-actions">
-      <button class="section-add" bindtap="goCreate">＋</button>
+      <view class="section-add" bindtap="goCreate">＋</view>
       <view class="pulse-dot"></view>
     </view>
   </view>
@@ -81,7 +81,7 @@
         </view>
         <view class="habit-actions">
           <view wx:if="{{item.log}}" class="done-pill">✓ {{item.log.value}}{{item.unit}}</view>
-          <button wx:else class="record-button" data-id="{{item.id}}" catchtap="recordHabit"><text class="check-mark">✓</text></button>
+          <view wx:else class="record-button" data-id="{{item.id}}" catchtap="recordHabit"><text class="check-mark">✓</text></view>
         </view>
       </view>
     </view>

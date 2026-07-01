@@ -518,3 +518,39 @@
 .habit-card {
   padding-right: 18rpx;
 }
+
+/* Native-button cleanup: use view-based controls for precise compact shapes. */
+.section-add {
+  box-sizing: border-box;
+  min-width: 58rpx;
+  max-width: 58rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+}
+
+.record-button {
+  box-sizing: border-box;
+  min-width: 50rpx;
+  max-width: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.habit-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.94);
+}
+
+.habit-ring {
+  height: 92rpx;
+  width: 92rpx;
+}
+
+.icon {
+  height: 72rpx;
+  width: 72rpx;
+}
+
+.dashboard {
+  box-shadow: 0 22rpx 52rpx rgba(69, 54, 36, 0.1);
+}
