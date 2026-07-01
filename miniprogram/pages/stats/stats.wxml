@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="stats-hero card">
+    <view class="eyebrow">INSIGHTS</view>
+    <view class="title">看见坚持的形状</view>
+    <view class="muted">把每天的小行动，沉淀成可见的数据。</view>
+  </view>
+
+  <view class="reward-preview card">
+    <view>
+      <view class="section-title">奖励设想</view>
+      <view class="muted">先按完成天数点亮徽章：3 天萌芽、7 天稳定、30 天月度、100 天大师。</view>
+    </view>
+    <view class="reward-count">{{overview.unlockedRewards}}</view>
+  </view>
+
+  <view class="grid">
+    <view class="metric card">
+      <view class="metric-icon">⏱️</view>
+      <view class="metric-value">{{overview.totalDuration}}</view>
+      <view class="muted">总时长 / 分钟</view>
+    </view>
+    <view class="metric card">
+      <view class="metric-icon">🔥</view>
+      <view class="metric-value">{{overview.totalCount}}</view>
+      <view class="muted">总次数 / 个</view>
+    </view>
+  </view>
+
+  <view class="card list-card">
+    <view class="section-title">习惯能量榜</view>
+    <view wx:for="{{overview.stats}}" wx:key="id" class="stat-row">
+      <view class="stat-left">
+        <view class="mini-icon" style="background: {{item.color}}22; color: {{item.color}}">{{item.icon}}</view>
+        <view>
+          <view class="habit-name">{{item.name}}</view>
+          <view class="muted">完成 {{item.completedDays}} 天 · {{item.reward.title}}</view>
+        </view>
+      </view>
+      <view class="total">{{item.reward.icon}} {{item.displayTotal}}</view>
+    </view>
+  </view>
+</view>
