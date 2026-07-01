@@ -1,39 +1,22 @@
 <view class="container">
-  <view class="profile-card card">
-    <view class="avatar-wrap">
-      <view class="avatar">🌱</view>
-      <view class="orbit"></view>
-    </view>
+  <view class="card profile-card">
+    <view class="avatar">🌱</view>
     <view>
-      <view class="eyebrow">PERSONAL SPACE</view>
-      <view class="title">{{appMeta.name}}</view>
-      <view class="version-pill">{{appMeta.visualVersion}}</view>
-      <view class="muted">把提醒、记录、统计做成温柔的日常系统。</view>
+      <view class="title">Great Habit</view>
+      <view class="muted">先把核心闭环跑起来：提醒、记录、统计。</view>
     </view>
   </view>
 
   <view class="card action-card">
     <view class="section-title">下一步需要你提供</view>
-    <view class="todo"><text>🔑</text> 微信小程序 AppID</view>
-    <view class="todo"><text>☁️</text> 是否启用云开发环境</view>
-    <view class="todo"><text>🎨</text> 首版品牌名称和视觉偏好</view>
-  </view>
-
-  <view class="card action-card">
-    <view class="section-title">预览排查</view>
-    <view class="todo"><text>🧹</text> 如果默认模板或界面没更新，先清缓存并重置演示数据</view>
-    <button class="secondary-button" bindtap="resetDemo">重置演示数据</button>
+    <view class="todo">1. 微信小程序 AppID</view>
+    <view class="todo">2. 是否启用云开发环境</view>
+    <view class="todo">3. 首版习惯模板和品牌名称</view>
   </view>
 
   <view class="card action-card">
     <view class="section-title">提醒模板</view>
-    <view wx:for="{{reminderTemplates}}" wx:key="title" class="todo template-row">
-      <text>🔔</text>
-      <view>
-        <view class="template-title">{{item.title}}</view>
-        <view class="muted">{{item.scene}}</view>
-      </view>
-    </view>
+    <view wx:for="{{reminderTemplates}}" wx:key="title" class="todo">{{item.title}}：{{item.scene}}</view>
     <button class="primary-button subscribe-button" bindtap="subscribeReminder">订阅习惯提醒</button>
   </view>
 </view>
