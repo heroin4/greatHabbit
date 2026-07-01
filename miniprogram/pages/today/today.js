@@ -19,7 +19,7 @@ Page({
   },
 
   loadHabits() {
-    const habits = getTodayHabits()
+    const habits = this.withSwipeState(getTodayHabits(), this.data.swipedHabitId)
     const completedCount = habits.filter((habit) => habit.log).length
     const progressPercent = habits.length ? Math.round((completedCount / habits.length) * 100) : 0
     this.setData({
@@ -28,6 +28,21 @@ Page({
       completedCount,
       progressPercent,
       encouragementText: this.buildEncouragement(progressPercent, completedCount, habits.length)
+    })
+  },
+
+  withSwipeState(habits, swipedHabitId) {
+    return habits.map((habit) => ({
+      ...habit,
+      swipeState: habit.id === swipedHabitId ? 'is-open' : '',
+      swipeX: habit.id === swipedHabitId ? '-184rpx' : '0'
+    }))
+  },
+
+  setSwipedHabit(swipedHabitId) {
+    this.setData({
+      swipedHabitId,
+      habits: this.withSwipeState(this.data.habits, swipedHabitId)
     })
   },
 
@@ -61,7 +76,7 @@ Page({
     const habitId = event.currentTarget.dataset.id
 
     if (deltaX < -50) {
-      this.setData({ swipedHabitId: habitId })
+      this.setSwipedHabit(habitId)
       return
     }
 
@@ -81,7 +96,7 @@ Page({
   },
 
   closeSwipe() {
-    this.setData({ swipedHabitId: '' })
+    this.setSwipedHabit('')
   },
 
   deleteHabit(event) {
@@ -101,7 +116,7 @@ Page({
         }
 
         deleteHabit(habit.id)
-        this.setData({ swipedHabitId: '' })
+        this.setSwipedHabit('')
         this.loadHabits()
         wx.showToast({ title: '已删除', icon: 'success' })
       }

@@ -57,13 +57,13 @@
   </view>
 
   <view class="habit-list">
-    <view wx:for="{{habits}}" wx:key="id" class="swipe-row {{swipedHabitId === item.id ? 'is-open' : ''}}" data-id="{{item.id}}" bindtouchstart="onHabitTouchStart" bindtouchend="onHabitTouchEnd">
+    <view wx:for="{{habits}}" wx:key="id" class="swipe-row {{item.swipeState}}" data-id="{{item.id}}" bindtouchstart="onHabitTouchStart" bindtouchend="onHabitTouchEnd">
       <view class="swipe-actions">
         <button class="swipe-action undo" catchtap="closeSwipe">撤销</button>
         <button class="swipe-action delete" data-id="{{item.id}}" catchtap="deleteHabit">删除</button>
       </view>
 
-      <view class="habit-card {{item.log ? 'is-done' : ''}}" data-id="{{item.id}}" bindtap="editHabit">
+      <view class="habit-card {{item.log ? 'is-done' : ''}}" style="transform: translateX({{item.swipeX}})" data-id="{{item.id}}" bindtap="editHabit">
         <view class="habit-left">
           <view class="habit-ring" style="border-color: {{item.color}}55">
             <view class="icon" style="background: {{item.color}}22; color: {{item.color}}">{{item.icon}}</view>

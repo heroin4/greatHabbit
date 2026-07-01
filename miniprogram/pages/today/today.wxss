@@ -581,3 +581,8 @@
 .check-mark {
   display: none;
 }
+
+/* Use data-driven transform instead of WXML equality expressions for reliable closed state. */
+.swipe-row .habit-card {
+  transform: translateX(0);
+}
