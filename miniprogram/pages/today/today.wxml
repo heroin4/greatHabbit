@@ -42,7 +42,6 @@
         <view class="quick-value">📿</view>
         <view class="quick-label">稳定功课</view>
       </view>
-      <button class="quick-add compact" bindtap="goCreate">＋ 添加</button>
     </view>
   </view>
 
@@ -51,7 +50,10 @@
       <view class="section-title">今日节奏</view>
       <view class="muted">像整理桌面一样整理今天。</view>
     </view>
-    <view class="pulse-dot"></view>
+    <view class="section-actions">
+      <button class="section-add" bindtap="goCreate">＋</button>
+      <view class="pulse-dot"></view>
+    </view>
   </view>
 
   <view class="habit-list">
@@ -79,7 +81,7 @@
         </view>
         <view class="habit-actions">
           <view wx:if="{{item.log}}" class="done-pill">✓ {{item.log.value}}{{item.unit}}</view>
-          <button wx:else class="record-button" data-id="{{item.id}}" catchtap="recordHabit">✓</button>
+          <button wx:else class="record-button" data-id="{{item.id}}" catchtap="recordHabit"><text class="check-mark">✓</text></button>
         </view>
       </view>
     </view>

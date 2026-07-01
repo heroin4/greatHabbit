@@ -453,3 +453,68 @@
 .habit-actions {
   min-width: 72rpx;
 }
+
+/* Refined mobile interaction v2: reduce visual weight and keep actions elegant. */
+.quick-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.section-actions {
+  align-items: center;
+  display: flex;
+  gap: 18rpx;
+}
+
+.section-add {
+  align-items: center;
+  background: rgba(255, 252, 246, 0.88);
+  border: 1rpx solid rgba(21, 23, 47, 0.08);
+  border-radius: 50%;
+  box-shadow: 0 12rpx 26rpx rgba(69, 54, 36, 0.1);
+  color: #15172f;
+  display: flex;
+  font-size: 34rpx;
+  font-weight: 800;
+  height: 64rpx;
+  justify-content: center;
+  line-height: 64rpx;
+  margin: 0;
+  padding: 0;
+  width: 64rpx;
+}
+
+.record-button {
+  align-items: center;
+  background: rgba(33, 182, 168, 0.08);
+  border: 2rpx solid rgba(33, 182, 168, 0.34);
+  border-radius: 50%;
+  box-shadow: none;
+  color: #14927f;
+  display: flex;
+  height: 52rpx;
+  justify-content: center;
+  line-height: 52rpx;
+  margin: 0;
+  min-width: 52rpx;
+  padding: 0;
+  width: 52rpx;
+}
+
+.record-button::after,
+.section-add::after {
+  border: 0;
+}
+
+.check-mark {
+  font-size: 25rpx;
+  font-weight: 900;
+  transform: translateY(-1rpx);
+}
+
+.habit-actions {
+  min-width: 58rpx;
+}
+
+.habit-card {
+  padding-right: 18rpx;
+}
