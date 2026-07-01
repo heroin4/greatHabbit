@@ -81,7 +81,7 @@
         </view>
         <view class="habit-actions">
           <view wx:if="{{item.log}}" class="done-pill">✓ {{item.log.value}}{{item.unit}}</view>
-          <view wx:else class="record-button" data-id="{{item.id}}" catchtap="recordHabit"><text class="check-mark">✓</text></view>
+          <view wx:else class="record-button" data-id="{{item.id}}" catchtap="recordHabit"><view class="record-dot"></view></view>
         </view>
       </view>
     </view>

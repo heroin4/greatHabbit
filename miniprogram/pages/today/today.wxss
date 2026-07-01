@@ -554,3 +554,30 @@
 .dashboard {
   box-shadow: 0 22rpx 52rpx rgba(69, 54, 36, 0.1);
 }
+
+/* Swipe + incomplete-state correction. */
+.swipe-row {
+  background: transparent;
+}
+
+.swipe-row .habit-card {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.record-button {
+  background: rgba(21, 23, 47, 0.035);
+  border: 2rpx solid rgba(21, 23, 47, 0.16);
+  color: transparent;
+}
+
+.record-dot {
+  background: rgba(21, 23, 47, 0.22);
+  border-radius: 50%;
+  height: 14rpx;
+  width: 14rpx;
+}
+
+.check-mark {
+  display: none;
+}
