@@ -9,6 +9,8 @@ Page({
     completedCount: 0,
     progressPercent: 0,
     encouragementText: '先完成一个最小动作，今天就已经开始变好了。',
+    swipedHabitId: '',
+    touchStartX: 0,
     appMeta
   },
 
@@ -49,8 +51,37 @@ Page({
     wx.navigateTo({ url: '/pages/habit-edit/habit-edit' })
   },
 
+  onHabitTouchStart(event) {
+    this.setData({ touchStartX: event.touches[0].clientX })
+  },
+
+  onHabitTouchEnd(event) {
+    const endX = event.changedTouches[0].clientX
+    const deltaX = endX - this.data.touchStartX
+    const habitId = event.currentTarget.dataset.id
+
+    if (deltaX < -50) {
+      this.setData({ swipedHabitId: habitId })
+      return
+    }
+
+    if (deltaX > 35 && this.data.swipedHabitId === habitId) {
+      this.closeSwipe()
+    }
+  },
+
   editHabit(event) {
-    wx.navigateTo({ url: `/pages/habit-edit/habit-edit?id=${event.currentTarget.dataset.id}` })
+    const habitId = event.currentTarget.dataset.id
+    if (this.data.swipedHabitId === habitId) {
+      this.closeSwipe()
+      return
+    }
+
+    wx.navigateTo({ url: `/pages/habit-edit/habit-edit?id=${habitId}` })
+  },
+
+  closeSwipe() {
+    this.setData({ swipedHabitId: '' })
   },
 
   deleteHabit(event) {
@@ -65,10 +96,12 @@ Page({
       confirmColor: '#D94A4A',
       success: (result) => {
         if (!result.confirm) {
+          this.closeSwipe()
           return
         }
 
         deleteHabit(habit.id)
+        this.setData({ swipedHabitId: '' })
         this.loadHabits()
         wx.showToast({ title: '已删除', icon: 'success' })
       }
@@ -92,6 +125,7 @@ Page({
 
         const value = Number(result.content) || habit.targetValue
         upsertHabitLog({ habit, value })
+        this.closeSwipe()
         this.loadHabits()
         wx.showToast({ title: '已记录', icon: 'success' })
       }

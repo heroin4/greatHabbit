@@ -358,3 +358,59 @@
   background: rgba(217, 74, 74, 0.08);
   color: #d94a4a;
 }
+
+.swipe-row {
+  border-radius: 34rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.swipe-row .habit-card {
+  position: relative;
+  transform: translateX(0);
+  transition: transform 0.22s ease;
+  z-index: 2;
+}
+
+.swipe-row.is-open .habit-card {
+  transform: translateX(-184rpx);
+}
+
+.swipe-actions {
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 216rpx;
+  z-index: 1;
+}
+
+.swipe-action {
+  align-items: center;
+  border-radius: 0;
+  color: #ffffff;
+  display: flex;
+  font-size: 26rpx;
+  font-weight: 900;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  width: 108rpx;
+}
+
+.swipe-action.undo {
+  background: #7f8497;
+}
+
+.swipe-action.delete {
+  background: #d94a4a;
+}
+
+.tap-hint {
+  color: #aaa49c;
+  font-size: 21rpx;
+  margin-top: 8rpx;
+}
