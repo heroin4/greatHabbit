@@ -1,24 +1,70 @@
-<view class="container">
-  <view class="hero card">
-    <view>
-      <view class="eyebrow">{{today}}</view>
-      <view class="title">今天要做什么？</view>
-      <view class="muted">完成 {{completedCount}} / {{habits.length}} 个习惯</view>
+<view class="container today-shell">
+  <view class="sun-glow"></view>
+  <view class="tech-grid"></view>
+
+  <view class="dashboard card">
+    <view class="dashboard-top">
+      <view>
+        <view class="eyebrow">{{today}} · {{appMeta.visualVersion}}</view>
+        <view class="title">今日仪式板</view>
+        <view class="hero-subtitle">{{appMeta.buildLabel}}，把生活节奏变清晰。</view>
+      </view>
+      <view class="score-orb">
+        <view class="score-number">{{progressPercent}}</view>
+        <view class="score-label">SYNC</view>
+      </view>
     </view>
-    <button class="add-button" bindtap="goCreate">＋</button>
+
+    <view class="progress-panel">
+      <view class="progress-info">
+        <text>完成进度</text>
+        <text>{{completedCount}} / {{habits.length}}</text>
+      </view>
+      <view class="progress-track">
+        <view class="progress-bar" style="width: {{progressPercent}}%"></view>
+      </view>
+    </view>
+
+    <view class="quick-grid">
+      <view class="quick-card">
+        <view class="quick-value">🌿</view>
+        <view class="quick-label">温柔提醒</view>
+      </view>
+      <view class="quick-card">
+        <view class="quick-value">📿</view>
+        <view class="quick-label">稳定功课</view>
+      </view>
+      <button class="quick-add" bindtap="goCreate">＋ 新习惯</button>
+    </view>
+  </view>
+
+  <view class="section-header">
+    <view>
+      <view class="section-title">今日节奏</view>
+      <view class="muted">像整理桌面一样整理今天。</view>
+    </view>
+    <view class="pulse-dot"></view>
   </view>
 
   <view class="habit-list">
-    <view wx:for="{{habits}}" wx:key="id" class="habit card {{item.log ? 'is-done' : ''}}">
-      <view class="habit-main">
-        <view class="icon" style="background: {{item.color}}22; color: {{item.color}}">{{item.icon}}</view>
+    <view wx:for="{{habits}}" wx:key="id" class="habit-card {{item.log ? 'is-done' : ''}}">
+      <view class="habit-left">
+        <view class="habit-ring" style="border-color: {{item.color}}55">
+          <view class="icon" style="background: {{item.color}}22; color: {{item.color}}">{{item.icon}}</view>
+        </view>
         <view class="habit-copy">
           <view class="habit-name">{{item.name}}</view>
-          <view class="muted">目标 {{item.targetValue}}{{item.unit}} · {{item.reminderTime}} 提醒</view>
+          <view class="habit-meta">
+            <text>{{item.group}}</text>
+            <text class="dot">·</text>
+            <text>{{item.reminderTime}}</text>
+            <text class="dot">·</text>
+            <text>{{item.targetValue}}{{item.unit}}</text>
+          </view>
         </view>
       </view>
-      <view wx:if="{{item.log}}" class="done-pill">已记录 {{item.log.value}}{{item.unit}}</view>
-      <button wx:else class="primary-button record-button" data-id="{{item.id}}" bindtap="recordHabit">完成</button>
+      <view wx:if="{{item.log}}" class="done-pill">✓ {{item.log.value}}{{item.unit}}</view>
+      <button wx:else class="record-button" data-id="{{item.id}}" bindtap="recordHabit">完成</button>
     </view>
   </view>
 </view>

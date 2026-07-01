@@ -13,6 +13,7 @@
 - [MVP 迭代路线图](docs/mvp-roadmap.md)
 - [Habitify 功能对照与差距分析](docs/habitify-feature-gap.md)
 - [微信云开发与订阅消息提醒方案](docs/wechat-cloud-reminders.md)
+- [微信开发者工具预览排查](docs/preview-troubleshooting.md)
 
 ## MVP 范围
 

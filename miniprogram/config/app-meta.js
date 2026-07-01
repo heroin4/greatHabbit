@@ -1,7 +1,7 @@
 const appMeta = {
   name: 'Great Habit',
-  visualVersion: 'LifeTech v0.2',
-  buildLabel: '生活感 × 科技感视觉版'
+  visualVersion: 'ZenOS v0.4',
+  buildLabel: '晨光生活 × 智能仪表盘'
 }
 
 module.exports = appMeta

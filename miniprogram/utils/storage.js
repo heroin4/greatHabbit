@@ -163,6 +163,11 @@ function seedDefaultHabits() {
   }
 }
 
+function resetDemoData() {
+  saveHabits(defaultHabits)
+  saveLogs([])
+}
+
 function isHabitDueToday(habit, date = new Date()) {
   if (habit.frequency.type === 'daily') {
     return true
@@ -231,6 +236,7 @@ module.exports = {
   getHabits,
   getLogs,
   getTodayHabits,
+  resetDemoData,
   seedDefaultHabits,
   upsertHabitLog
 }

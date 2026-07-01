@@ -1,11 +1,14 @@
 const { getTodayHabits, upsertHabitLog } = require('../../utils/storage')
 const { todayKey } = require('../../utils/date')
+const appMeta = require('../../config/app-meta')
 
 Page({
   data: {
     today: '',
     habits: [],
-    completedCount: 0
+    completedCount: 0,
+    progressPercent: 0,
+    appMeta
   },
 
   onShow() {
@@ -17,7 +20,8 @@ Page({
     this.setData({
       today: todayKey(),
       habits,
-      completedCount: habits.filter((habit) => habit.log).length
+      completedCount: habits.filter((habit) => habit.log).length,
+      progressPercent: habits.length ? Math.round((habits.filter((habit) => habit.log).length / habits.length) * 100) : 0
     })
   },
 
