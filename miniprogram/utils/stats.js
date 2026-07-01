@@ -1,3 +1,4 @@
+const { todayKey } = require('./date')
 const { getHabits, getLogs } = require('./storage')
 
 function getRewardForCompletedDays(completedDays) {
@@ -25,12 +26,15 @@ function buildHabitStats() {
 
   return getHabits().map((habit) => {
     const habitLogs = logs.filter((log) => log.habitId === habit.id && log.status === 'completed')
+    const todayCompleted = habitLogs.some((log) => log.date === todayKey())
     const totalValue = habitLogs.reduce((sum, log) => sum + Number(log.value || 0), 0)
     const completedDays = habitLogs.length
 
     return {
       ...habit,
       completedDays,
+      todayCompleted,
+      todayStatusText: todayCompleted ? '今日已完成' : '今日未完成',
       reward: getRewardForCompletedDays(completedDays),
       totalValue,
       displayTotal: habit.goalType === 'done' ? `${habitLogs.length} 天` : `${totalValue} ${habit.unit}`

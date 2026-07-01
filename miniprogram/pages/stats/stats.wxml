@@ -28,12 +28,12 @@
 
   <view class="card list-card">
     <view class="section-title">习惯能量榜</view>
-    <view wx:for="{{overview.stats}}" wx:key="id" class="stat-row">
+    <view wx:for="{{overview.stats}}" wx:key="id" class="stat-row" data-id="{{item.id}}" bindtap="goHabitDetail">
       <view class="stat-left">
         <view class="mini-icon" style="background: {{item.color}}22; color: {{item.color}}">{{item.icon}}</view>
         <view>
           <view class="habit-name">{{item.name}}</view>
-          <view class="muted">完成 {{item.completedDays}} 天 · {{item.reward.title}}</view>
+          <view class="muted">{{item.todayStatusText}} · 累计 {{item.completedDays}} 天 · {{item.reward.title}}</view>
         </view>
       </view>
       <view class="total">{{item.reward.icon}} {{item.displayTotal}}</view>

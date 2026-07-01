@@ -3,6 +3,7 @@
     "pages/today/today",
     "pages/habit-edit/habit-edit",
     "pages/stats/stats",
+    "pages/habit-stats-detail/habit-stats-detail",
     "pages/profile/profile"
   ],
   "window": {
