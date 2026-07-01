@@ -7,9 +7,9 @@
   ],
   "window": {
     "navigationBarTitleText": "Great Habit",
-    "navigationBarBackgroundColor": "#202033",
+    "navigationBarBackgroundColor": "#6C63FF",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#EEF3FF"
+    "backgroundColor": "#F7F7FB"
   },
   "tabBar": {
     "color": "#8A8A99",
