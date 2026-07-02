@@ -131,3 +131,27 @@
 .metric.highlight {
   background: linear-gradient(135deg, rgba(246, 250, 255, 0.98), rgba(236, 232, 255, 0.94));
 }
+
+.stat-row {
+  display: grid;
+  gap: 18rpx;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.stat-left {
+  min-width: 0;
+}
+
+.stat-left > view:last-child {
+  min-width: 0;
+}
+
+.stat-left .muted {
+  line-height: 1.45;
+}
+
+.total {
+  min-width: 96rpx;
+  text-align: right;
+  white-space: nowrap;
+}
