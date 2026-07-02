@@ -1,0 +1,44 @@
+<view class="container">
+  <view class="stats-hero card">
+    <view class="eyebrow">INSIGHTS</view>
+    <view class="title">看见坚持的形状</view>
+    <view class="muted">{{overview.weeklyTrendText}}，把每天的小行动沉淀成可见数据。</view>
+  </view>
+
+  <view class="grid">
+    <view class="metric card highlight">
+      <view class="metric-icon">📈</view>
+      <view class="metric-value">{{overview.completionRate}}%</view>
+      <view class="muted">整体完成率</view>
+    </view>
+    <view class="metric card">
+      <view class="metric-icon">🔥</view>
+      <view class="metric-value">{{overview.completedDays}}</view>
+      <view class="muted">完成记录 / 天</view>
+    </view>
+    <view class="metric card">
+      <view class="metric-icon">⏱️</view>
+      <view class="metric-value">{{overview.totalDuration}}</view>
+      <view class="muted">时长累计 / 分钟</view>
+    </view>
+    <view class="metric card">
+      <view class="metric-icon">◎</view>
+      <view class="metric-value">{{overview.dailyAverage}}</view>
+      <view class="muted">日均完成</view>
+    </view>
+  </view>
+
+  <view class="card list-card">
+    <view class="section-title">习惯能量榜</view>
+    <view wx:for="{{overview.stats}}" wx:key="id" class="stat-row" data-id="{{item.id}}" bindtap="goHabitDetail">
+      <view class="stat-left">
+        <view class="mini-icon" style="background: {{item.color}}22; color: {{item.color}}">{{item.icon}}</view>
+        <view>
+          <view class="habit-name">{{item.name}}</view>
+          <view class="muted">{{item.todayStatusText}} · 完成率 {{item.completionRate}}% · 连续 {{item.currentStreak}} 天</view>
+        </view>
+      </view>
+      <view class="total">{{item.displayTotal}}</view>
+    </view>
+  </view>
+</view>

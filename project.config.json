@@ -1,0 +1,13 @@
+{
+  "appid": "wx51b0585bb500ec11",
+  "projectname": "greatHabbit",
+  "setting": {
+    "compileHotReLoad": true,
+    "urlCheck": false,
+    "es6": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/"
+}

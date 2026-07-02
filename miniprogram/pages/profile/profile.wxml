@@ -1,0 +1,54 @@
+<view class="container">
+  <view class="profile-card card">
+    <view class="avatar-wrap">
+      <view class="avatar">🌱</view>
+      <view class="orbit"></view>
+    </view>
+    <view class="profile-main">
+      <view class="eyebrow">PERSONAL SPACE</view>
+      <view class="title">{{appMeta.name}}</view>
+      <view class="version-pill">{{appMeta.visualVersion}}</view>
+      <view class="muted">每个用户拥有独立习惯、记录和统计空间。</view>
+    </view>
+  </view>
+
+  <view class="card action-card status-card">
+    <view class="section-title">账号与数据</view>
+    <view class="info-row">
+      <text>登录状态</text>
+      <text class="info-value success">{{loginStatus}}</text>
+    </view>
+    <view class="info-row">
+      <text>当前用户</text>
+      <text class="info-value">{{userId}}</text>
+    </view>
+    <view class="info-row">
+      <text>AppID</text>
+      <text class="info-value">{{cloudConfig.appId}}</text>
+    </view>
+    <view class="info-row">
+      <text>数据隔离</text>
+      <text class="info-value success">已按用户空间隔离</text>
+    </view>
+    <view class="muted block-copy">使用微信登录获取 openid，不同 openid 会进入不同的数据空间。新用户默认只生成 1 个示例习惯：示例：冥想 10 分钟。</view>
+    <button class="login-button full" bindtap="loginWithWeChat">微信登录 / 刷新登录</button>
+  </view>
+
+  <view class="card action-card">
+    <view class="section-title">数据管理</view>
+    <view class="todo"><text>🧹</text> 如果需要重新体验新用户流程，可重置当前用户示例数据</view>
+    <button class="secondary-button" bindtap="resetDemo">重置当前用户数据</button>
+  </view>
+
+  <view class="card action-card">
+    <view class="section-title">提醒模板</view>
+    <view wx:for="{{reminderTemplates}}" wx:key="title" class="todo template-row">
+      <text>🔔</text>
+      <view>
+        <view class="template-title">{{item.title}}</view>
+        <view class="muted">{{item.scene}}</view>
+      </view>
+    </view>
+    <button class="primary-button subscribe-button" bindtap="subscribeReminder">订阅习惯提醒</button>
+  </view>
+</view>
