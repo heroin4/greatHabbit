@@ -31,6 +31,26 @@ function isHabitDueOnDate(habit, date) {
   return true
 }
 
+function countCurrentStreak(days) {
+  let streak = 0
+
+  for (let index = days.length - 1; index >= 0; index -= 1) {
+    const day = days[index]
+
+    if (!day.required) {
+      continue
+    }
+
+    if (!day.completed) {
+      break
+    }
+
+    streak += 1
+  }
+
+  return streak
+}
+
 Page({
   data: {
     habit: null,
@@ -38,7 +58,11 @@ Page({
       startDate: '',
       firstCompletedDate: '暂无',
       completedDays: 0,
-      breakCount: 0
+      breakCount: 0,
+      completionRate: 0,
+      currentStreak: 0,
+      dailyAverage: 0,
+      totalValueText: '0'
     },
     chartDays: [],
     breakDates: []
@@ -65,12 +89,15 @@ Page({
     const firstCompletedDate = logs[0] ? logs[0].date : '暂无'
     const chartStart = addDays(today, -29)
     const chartDays = []
+    const allDays = []
     const breakDates = []
 
     for (let cursor = new Date(startDate); cursor <= today; cursor = addDays(cursor, 1)) {
       const date = formatDate(cursor)
       const required = isHabitDueOnDate(habit, cursor)
       const completed = completedDateSet.has(date)
+
+      allDays.push({ date, required, completed })
 
       if (required && !completed) {
         breakDates.push(date)
@@ -85,13 +112,21 @@ Page({
       }
     }
 
+    const dueDays = allDays.filter((day) => day.required).length
+    const completedDays = logs.length
+    const totalValue = logs.reduce((sum, log) => sum + Number(log.value || 0), 0)
+
     this.setData({
       habit,
       summary: {
         startDate: startKey,
         firstCompletedDate,
-        completedDays: logs.length,
-        breakCount: breakDates.length
+        completedDays,
+        breakCount: breakDates.length,
+        completionRate: dueDays ? Math.round((completedDays / dueDays) * 100) : 0,
+        currentStreak: countCurrentStreak(allDays),
+        dailyAverage: dueDays ? Number((totalValue / dueDays).toFixed(1)) : 0,
+        totalValueText: habit.goalType === 'done' ? `${completedDays} 天` : `${totalValue} ${habit.unit}`
       },
       chartDays,
       breakDates: breakDates.slice(-10).reverse()

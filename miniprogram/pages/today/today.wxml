@@ -32,17 +32,6 @@
         <view class="encouragement-text">{{encouragementText}}</view>
       </view>
     </view>
-
-    <view class="quick-grid">
-      <view class="quick-card">
-        <view class="quick-value">🌿</view>
-        <view class="quick-label">温柔提醒</view>
-      </view>
-      <view class="quick-card">
-        <view class="quick-value">📿</view>
-        <view class="quick-label">稳定功课</view>
-      </view>
-    </view>
   </view>
 
   <view class="section-header">
