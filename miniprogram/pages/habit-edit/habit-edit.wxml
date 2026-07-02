@@ -17,7 +17,7 @@
     <view class="inline-grid">
       <view>
         <view class="label">目标数值</view>
-        <input class="input" type="number" value="{{targetValue}}" placeholder="30" bindinput="onTargetInput" />
+        <input class="input" type="number" value="{{targetValueInput}}" placeholder="30" bindinput="onTargetInput" />
       </view>
       <view>
         <view class="label">单位</view>

@@ -237,6 +237,7 @@ function addHabit(habit) {
 
 function updateHabit(id, updates) {
   const habits = getHabits()
+  const previousHabit = habits.find((habit) => habit.id === id)
   const nextHabits = habits.map((habit) => {
     if (habit.id !== id) {
       return habit
@@ -250,6 +251,24 @@ function updateHabit(id, updates) {
     }
   })
   saveHabits(nextHabits)
+
+  if (previousHabit) {
+    const today = todayKey()
+    const nextLogs = getLogs().map((log) => {
+      if (log.habitId !== id) {
+        return log
+      }
+
+      return {
+        ...log,
+        habitName: updates.name,
+        unit: updates.unit,
+        value: log.date === today ? updates.targetValue : log.value
+      }
+    })
+    saveLogs(nextLogs)
+  }
+
   return getHabitById(id)
 }
 

@@ -7,7 +7,7 @@ Page({
     habitId: '',
     isEditing: false,
     name: '',
-    targetValue: 30,
+    targetValueInput: '30',
     unit: '分钟',
     reminderTime: '21:00',
     goalTypeIndex: 0,
@@ -29,7 +29,7 @@ Page({
       habitId: habit.id,
       isEditing: true,
       name: habit.name,
-      targetValue: habit.targetValue,
+      targetValueInput: `${habit.targetValue}`,
       unit: habit.unit,
       reminderTime: habit.reminderTime,
       goalTypeIndex: Math.max(goalTypes.indexOf(habit.goalType), 0)
@@ -41,7 +41,7 @@ Page({
   },
 
   onTargetInput(event) {
-    this.setData({ targetValue: Number(event.detail.value) || 1 })
+    this.setData({ targetValueInput: event.detail.value })
   },
 
   onUnitInput(event) {
@@ -66,17 +66,24 @@ Page({
       return
     }
 
+    const targetValue = Number(this.data.targetValueInput)
+    if (!Number.isFinite(targetValue) || targetValue <= 0) {
+      wx.showToast({ title: '请输入有效目标数值', icon: 'none' })
+      return
+    }
+
+    const existingHabit = this.data.isEditing ? getHabitById(this.data.habitId) : null
     const habitPayload = {
       name: this.data.name.trim(),
-      icon: this.data.isEditing ? getHabitById(this.data.habitId).icon : '✨',
-      color: this.data.isEditing ? getHabitById(this.data.habitId).color : '#6C63FF',
+      icon: existingHabit ? existingHabit.icon : '✨',
+      color: existingHabit ? existingHabit.color : '#6C63FF',
       goalType: goalTypes[this.data.goalTypeIndex],
-      targetValue: this.data.targetValue,
+      targetValue,
       unit: this.data.unit || '次',
-      frequency: { type: 'daily', weekdays: [] },
+      frequency: existingHabit ? existingHabit.frequency : { type: 'daily', weekdays: [] },
       reminderTime: this.data.reminderTime,
-      group: this.data.isEditing ? getHabitById(this.data.habitId).group : '自定义',
-      encouragement: this.data.isEditing ? getHabitById(this.data.habitId).encouragement : '今天也稳稳完成'
+      group: existingHabit ? existingHabit.group : '自定义',
+      encouragement: existingHabit ? existingHabit.encouragement : '今天也稳稳完成'
     }
 
     if (this.data.isEditing) {
