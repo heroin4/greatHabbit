@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="edit-hero card">
+    <view class="eyebrow">CREATE</view>
+    <view class="title">{{isEditing ? '调整习惯节奏' : '给生活添加一个新节奏'}}</view>
+    <view class="muted">先简单记录，持续后再慢慢优化。</view>
+  </view>
+
+  <view class="card form-card">
+    <view class="label">习惯名称</view>
+    <input class="input" value="{{name}}" placeholder="例如：念诵经文" bindinput="onNameInput" />
+
+    <view class="label">目标类型</view>
+    <picker mode="selector" range="{{goalTypeLabels}}" value="{{goalTypeIndex}}" bindchange="onGoalTypeChange">
+      <view class="picker">{{goalTypeLabels[goalTypeIndex]}}</view>
+    </picker>
+
+    <view class="inline-grid">
+      <view>
+        <view class="label">目标数值</view>
+        <input class="input" type="number" value="{{targetValueInput}}" placeholder="30" bindinput="onTargetInput" />
+      </view>
+      <view>
+        <view class="label">单位</view>
+        <input class="input" value="{{unit}}" placeholder="分钟 / 个 / 次" bindinput="onUnitInput" />
+      </view>
+    </view>
+
+    <view class="label">提醒时间</view>
+    <picker mode="time" value="{{reminderTime}}" bindchange="onReminderChange">
+      <view class="picker">{{reminderTime}}</view>
+    </picker>
+
+    <button class="primary-button save-button" bindtap="saveHabit">{{isEditing ? '保存修改' : '保存习惯'}}</button>
+  </view>
+</view>
