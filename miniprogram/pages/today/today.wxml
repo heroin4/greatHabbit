@@ -10,8 +10,8 @@
         <view class="hero-subtitle">{{appMeta.buildLabel}}，把生活节奏变清晰。</view>
       </view>
       <view class="score-orb">
-        <view class="score-number">{{progressPercent}}</view>
-        <view class="score-label">SYNC</view>
+        <view class="score-number">{{progressPercent}}%</view>
+        <view class="score-label">完成率</view>
       </view>
     </view>
 
@@ -80,7 +80,7 @@
           </view>
         </view>
         <view class="habit-actions">
-          <view wx:if="{{item.log}}" class="done-pill">✓ {{item.log.value}}{{item.unit}}</view>
+          <view wx:if="{{item.log}}" class="done-pill">✓ 今日已完成</view>
           <view wx:else class="record-button" data-id="{{item.id}}" catchtap="recordHabit"><view class="record-dot"></view></view>
         </view>
       </view>

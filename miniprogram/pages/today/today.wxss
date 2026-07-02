@@ -595,3 +595,14 @@
 .swipe-row:not(.is-open) .habit-card {
   transform: translateX(0) !important;
 }
+
+/* Clearer status labels: avoid exposing stale numeric log values on the Today list. */
+.score-number {
+  font-size: 38rpx;
+}
+
+.done-pill {
+  font-size: 23rpx;
+  padding: 14rpx 18rpx;
+  white-space: nowrap;
+}
